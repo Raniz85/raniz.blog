@@ -1,4 +1,5 @@
 const pluginTailwind = require('eleventy-plugin-tailwindcss');
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = (config) => {
   config.addPlugin(pluginTailwind, {
@@ -24,6 +25,8 @@ module.exports = (config) => {
   config.addCollection('tagList', require('./lib/collections/tagList'));
   config.addCollection('pagedPosts', require('./lib/collections/pagedPosts'));
   config.addCollection('pagedPostsByTag', require('./lib/collections/pagedPostsByTag'));
+
+  config.addPlugin(syntaxHighlight);
 
   return {
     dir: {
