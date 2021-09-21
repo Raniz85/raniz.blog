@@ -1,0 +1,41 @@
+---
+title: "Tolerable cold start times on AWS Lambda with Micronaut and GraalVM"
+description: ""
+date: 2021-08-09
+tags: 
+    - AWS Lambda
+    - AWS
+    - Micronaut
+    - GraalVM
+    - Java
+---
+
+Java has never been a great fit for running on Function as a Service (FaaS) platforms such as AWS Lambda because whenever it
+needs to start a new instance of your function (i.e. after deployment or when scaling up) it needs to start up the VM, load all
+classes and initialize your application (also called a _cold start_).
+
+We're going to start with a fairly basic Spring Boot Lambda to demonstrate how bad cold start times can be.
+
+Results:
+  
+  Min
+  Max
+  Median
+  Spring Boot + Java 16
+  10 721.4 ms
+  12 128.7 ms
+  11 537.2 ms
+  Micronaut + Java 16
+  8 540.9 ms
+  10 016.8 ms
+  9 160.0 ms
+  Micronaut + Native Image
+  851.2 ms
+  1 016.5 ms
+  898.2 ms
+
+
+Pain points:
+* Compiling to native
+* No longer platform independent
+* Compiling against correct GLIBC
