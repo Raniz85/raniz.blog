@@ -1,5 +1,5 @@
 {
-  "name": "vredeburg",
+  "name": "raniz.blog",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -29,6 +29,7 @@
     "eleventy-plugin-tailwindcss": "^0.3.0",
     "html-minifier": "^4.0.0",
     "luxon": "^1.24.1",
+    "markdown-it-link-attributes": "^3.0.0",
     "rimraf": "^3.0.2",
     "terser": "^4.8.0"
   }

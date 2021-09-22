@@ -1,7 +1,24 @@
 const pluginTailwind = require('eleventy-plugin-tailwindcss');
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const markdownIt = require("markdown-it");
+const mila = require("markdown-it-link-attributes");
+
+const markdownItOptions = {
+  html: true
+};
+const milaOptions = {
+  pattern: /^(?!(https:\/\/raniz\.blog|#)).*$/gm,
+  attrs: {
+    target: "_blank",
+    rel: "noopener noreferrer"
+  }
+};
+const markdownLib = markdownIt(markdownItOptions).use(mila, milaOptions);
 
 module.exports = (config) => {
+
+  config.setLibrary("md", markdownLib);
+
   config.addPlugin(pluginTailwind, {
     src: 'src/assets/css/*'
   });
