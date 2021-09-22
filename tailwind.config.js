@@ -33,6 +33,9 @@ module.exports = {
       },
       teal: colors.teal
     },
+    maxHeight: {
+      '3/4v': '75vh'
+    },
     extend: {
       typography: (theme) => ({
         DEFAULT: {

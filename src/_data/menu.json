@@ -6,10 +6,5 @@
     {
         "label": "Tags",
         "url": "/tags"
-    },
-    {
-        "label": "GitHub",
-        "url": "https://github.com/Raniz85",
-        "newTab": true
     }
 ]

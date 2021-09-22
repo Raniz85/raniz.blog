@@ -1,6 +1,92 @@
 <footer class="mt-20 px-10 py-8 bg-gray-200">
-    <div class="max-w-5xl mx-auto text-gray-700 text-center">
-        © 2021 Raniz.
+    <div class="max-w-8xl mx-auto text-gray-700 text-center">
         Made with <a href="https://www.11ty.dev" target="_blank" rel="noopener">Eleventy</a> based on <a href="https://github.com/dafiulh/vredeburg" target="_blank" rel="noopener">Vredeburg</a>.
     </div>
+    <div class="max-w-5xl mt-2 mx-auto text-gray-700 text-left">
+        © 2021 Raniz |
+        All code snippets on this site are licensed under the <span class="modal-open cursor-pointer underline">MIT license</span> |
+        All text is licensed under <a class="underline" target="_new" rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>.
+    </div>
+    <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+
+        <div class="modal-container bg-white w-11/12 md:max-w-md lg:max-w-lg xl:max-w-3xl mx-auto rounded shadow-lg z-50 overflow-y-auto">
+
+          <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+            <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+              <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+            </svg>
+            <span class="text-sm">(Esc)</span>
+          </div>
+
+          <!-- Add margin if you want to see some of the overlay behind the modal-->
+          <div class="modal-content py-4 text-left px-6 max-h-3/4v">
+            <!--Title-->
+            <div class="flex justify-between items-center pb-3">
+              <p class="text-2xl font-bold">MIT License</p>
+              <div class="modal-close cursor-pointer z-50">
+                <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                  <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!--Body-->
+            <p>Copyright 2021 Raniz</p>
+            <p class="pt-2">Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+            associated documentation files (the "Software"), to deal in the Software without restriction, including
+            without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+            copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+            following conditions:</p>
+
+            <p class="pt-2">The above copyright notice and this permission notice shall be included in all copies or substantial
+            portions of the Software.</p>
+
+            <p class="pt-2">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+            LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+            EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
+            AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+            OR OTHER DEALINGS IN THE SOFTWARE.</p>
+          </div>
+        </div>
+      </div>
+       <script>
+          var openmodal = document.querySelectorAll('.modal-open')
+          for (var i = 0; i < openmodal.length; i++) {
+            openmodal[i].addEventListener('click', function(event){
+            event.preventDefault()
+            toggleModal()
+            })
+          }
+
+          const overlay = document.querySelector('.modal-overlay')
+          overlay.addEventListener('click', toggleModal)
+
+          var closemodal = document.querySelectorAll('.modal-close')
+          for (var i = 0; i < closemodal.length; i++) {
+            closemodal[i].addEventListener('click', toggleModal)
+          }
+
+          document.onkeydown = function(evt) {
+            evt = evt || window.event
+            var isEscape = false
+            if ("key" in evt) {
+              isEscape = (evt.key === "Escape" || evt.key === "Esc")
+            } else {
+              isEscape = (evt.keyCode === 27)
+            }
+            if (isEscape && document.body.classList.contains('modal-active')) {
+              toggleModal()
+            }
+          };
+
+
+          function toggleModal () {
+            const body = document.querySelector('body')
+            const modal = document.querySelector('.modal')
+            modal.classList.toggle('opacity-0')
+            modal.classList.toggle('pointer-events-none')
+            body.classList.toggle('modal-active')
+          }
+        </script>
 </footer>
