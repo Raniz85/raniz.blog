@@ -3,6 +3,7 @@ title: "The Search for a GDPR Compliant Webinar Platform"
 description: "How hard can it be to host a GDPR-compliant webinar?"
 date: 2021-09-21
 thumb: "800px-EU_flag_in_Italy.jpg"
+draft: true
 tags: 
     - gdpr
     - webinar
