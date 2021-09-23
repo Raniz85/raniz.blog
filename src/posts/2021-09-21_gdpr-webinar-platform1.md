@@ -54,6 +54,9 @@ this is not something that we can guarantee. The same goes for countries with si
 so will be deferring to those that are, which means that if you or any of your service providers aren't on _the list_
 you're _out_.
 
+(If you take issue with _my_ interpretation of the situation, you can read this as a quest for the most European
+webinar platform we can find. Cool? Good, let's go on.)
+
 This means that anyone who uses the big three cloud providers: Amazon Web Services, Microsoft Azure, and Google Cloud
 Platform is out. As you will see below, this complicates things quite a bit.
 
