@@ -21,7 +21,8 @@ Maybe not, so let's take a moment and write down a few reasonable requirements f
 1. GDPR compliant
 2. Recording of webinars
 3. Multiple speakers
-4. No registration for attendees (i.e. we don't want your email address)
+4. 100+ attendees
+5. No registration for attendees (i.e. we don't want your email address)
 
 Let's dig a bit deeper into the first requirement: GDPR compliance. By this I mean that any company involved in providing
 the webinar needs to follow GDPR as well as be based in Europe or any of the countries on the
@@ -119,25 +120,32 @@ sites mentioning them.
 
 They were probably American anyways.
 
-# Ok, Let's Look Ourselves
+# There Must Be Others
 So, that didn't bear any fruit. Can we come up with some alternatives ourselves?
 
 The obvious Zoom competitors Microsoft Teams and Google Meet are American companies so aren't GDPR compliant. That
-leaves non-american companies then of which I came up with one: Zoho
+leaves non-american companies then of which I came up with two: Zoho and a Swedish cloud provider we're using named City
+Cloud.
 
 ## 11. Zoho
 [Zoho](https://www.zoho.com) is an Indian company that provides more services than you can dream up. They probably have
 an alternative to whatever other app you're using and their offerings seem decent, albeit navigating them can be a bit
 messy.
 
-Unfortunately India isn't on _the list_, so we can't be sure if using services from Indian companies are OK. I also
+Unfortunately India isn't on _the list_, so we can't be sure if using services from Indian companies is OK. I also
 could not find any way of disabling email registration for attendees when I tried it out - you have to enter your email
 address to get an email containing the link to the actual webinar.
 
 Because of both of the above, Zoho is out.
 
+## 12. City Cloud
+[City Cloud](https://citycloud.se) is a Swedish cloud provider that runs [OpenStack](https://www.openstack.org/). They
+also have a few additional offerings and among those is video meetings. Being Swedish with their own servers is great -
+the GDPR is happy. Unfortunately they state on their product page that they only support up to 70 attendees which isn't
+enough for us.
+
 # Is This the End?
-So, that's 14 platforms (counting Google Meet, MS Teams and Zoom) that don't fit our requirements. Are there any other
+So, that's 15 platforms (counting Google Meet, MS Teams and Zoom) that don't fit our requirements. Are there any other
 alternatives?
 
 Sure, hang tight while I author the next post where I will explore two open source options ([BigBlueButton](
