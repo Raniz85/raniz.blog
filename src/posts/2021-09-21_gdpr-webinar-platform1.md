@@ -124,8 +124,8 @@ They were probably American anyways.
 So, that didn't bear any fruit. Can we come up with some alternatives ourselves?
 
 The obvious Zoom competitors Microsoft Teams and Google Meet are American companies so aren't GDPR compliant. That
-leaves non-american companies then of which I came up with two: Zoho and a Swedish cloud provider we're using named City
-Cloud.
+leaves non-american companies then of which I came up with two: Zoho and a Swedish cloud provider we're already using
+named City Cloud.
 
 ## 11. Zoho
 [Zoho](https://www.zoho.com) is an Indian company that provides more services than you can dream up. They probably have
