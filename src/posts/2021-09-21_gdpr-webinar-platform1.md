@@ -9,10 +9,10 @@ tags:
     - gdpr
     - webinar
 ---
-So, we're hosting a webinar about GDPR compliance. The basic premise is that a lot of people (and companies) assume that
-it's legal to use services from American providers (such as Amazon Web Services, Microsoft OneDrive, or
-Google Workspace) if they just store data about EU citizens in the EU or the service provider says they're
-GDPR compliant. **This is not the case.**
+So, the Swedish consulting firm I work at - Factor 10 - are hosting a webinar about GDPR compliance. The basic premise
+is that a lot of people (and companies) assume that it's legal to use services from American providers (such as Amazon
+Web Services, Microsoft OneDrive, or Google Workspace) if they just store data about EU citizens in the EU and the
+service provider says they're GDPR compliant. **This is not the case.**
 
 So, of course we're going to host that webinar on Zoom like we've always done, right?
 
@@ -43,13 +43,17 @@ on the _Schrems II_ ruling](https://www.qwant.com/?q=schrems+II+GDPR&t=web) if y
 
 Basically US federal law enforcement can demand data from any American company regardless of where it is stored - i.e.
 the FBI can compel Google to hand over all data stored in IKEA's GCP account, regardless of which regions IKEA are
-using. I'm not a privacy law expert so will be deferring to those that are, which means that if you're not on _the list_
+using.
+
+This would not directly mean that IKEA is breaching the GDPR; Google would be the ones who unlawfully transfer data
+outside the EU. However, the GDPR also states that when choosing service providers (or processors as they're called) you
+must make sure that the service provider will uphold their part of the GDPR. When it comes to the US and their CLOUD Act
+this is not something that we can guarantee. The same goes for countries with similar laws. I'm not a privacy law expert
+so will be deferring to those that are, which means that if you or any of your service providers aren't on _the list_
 you're _out_.
 
-Since we require any company that touches the webinar to be GDPR compliant and restricts the countries they operate in
-we also disqualify any platforms that use service providers based in countries outside the EU and not on _the list_ -
-such as the big three cloud providers: Amazon Web Services, Microsoft Azure, and Google Cloud Platform. As you will see
-below, this complicates things quite a bit.
+This means that anyone who uses the big three cloud providers: Amazon Web Services, Microsoft Azure, and Google Cloud
+Platform is out. As you will see below, this complicates things quite a bit.
 
 # Let's Ask the Internet
 I found a list [here](https://www.ventureharbour.com/webinar-software-10-best-webinar-platforms-compared/) of the 10 best
