@@ -21,7 +21,7 @@ Maybe not, so let's take a moment and write down a few reasonable requirements f
 1. GDPR compliant
 2. Recording of webinars
 3. Multiple speakers
-4. 100+ attendees
+4. Up to 200 attendees
 5. No registration for attendees (i.e. we don't want your email address)
 
 Let's dig a bit deeper into the first requirement: GDPR compliance. By this I mean that any company involved in providing
