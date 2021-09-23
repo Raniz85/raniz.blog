@@ -95,8 +95,9 @@ Being Polish, they aren't immediately disqualified and reading their privacy pol
 > high level of personal data protection. We comply with the applicable data protection laws and GetResponse confirms
 > that the conditions set in the GDPR are met. 
 
-"Mainly" isn't good enough for us and I never bothered to investigate this further because they wanted me to enter my
-physical address and phone number when I tried to sign up.
+"Mainly" isn't good enough for us since we need to be certain that no data ends up where it shouldn't. I never bothered
+to investigate this further because they wanted me to enter my physical address and phone number when I tried to sign
+up - and I'm not cool with that.
 
 ## 8. ClickMeeting
 [ClickMeeting](https://clickmeeting.com) is actually the most interesting platform on this list. They're a Polish company
