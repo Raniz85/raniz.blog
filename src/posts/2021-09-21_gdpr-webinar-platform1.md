@@ -5,8 +5,6 @@ date: 2021-09-21
 thumb: "1280px-EU_flag_in_Italy.jpg"
 thumbCaption: "Credit: Tiia Monto, CC BY-SA 3.0 via Wikimedia Commons"
 thumbCaptionHref: "https://commons.wikimedia.org/wiki/File:EU_flag_in_Italy.jpg"
-# TODO: credit för bilden
-draft: true
 tags: 
     - gdpr
     - webinar
@@ -31,8 +29,8 @@ the webinar needs to follow GDPR as well as be based in Europe or any of the cou
 [list of recognized countries that provide adequate data protection](
 https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en).
 
-To take the US as an example and show _why_ it is important to be on that list (the US is _not_), I refer to the following
-quote from [this assessment from the EU Data Protection Board](
+To take the US as an example and show _why_ it is important to be on that list (the US is _not_), I refer to the
+following quote from [this assessment from the EU Data Protection Board](
 https://edpb.europa.eu/sites/default/files/files/file2/edpb_edps_joint_response_us_cloudact_annex.pdf):
 
 > The US CLOUD Act thus states an extraterritorial reach of powers under the US Stored
@@ -41,7 +39,8 @@ subject to the GDPR or other EU or Member States’ law will be susceptible to f
 laws between US law and the GDPR and other applicable EU or national law of the Member States.
 
 You can read about the US CLOUD Act [here](https://en.wikipedia.org/wiki/CLOUD_Act), you can also [search for articles
-on the _Schrems II_ ruling](https://www.qwant.com/?q=schrems+II+GDPR&t=web) if you're interested in digging a bit deeper.
+on the _Schrems II_ ruling](https://www.qwant.com/?q=schrems+II+GDPR&t=web) or [FISA 702](
+https://www.qwant.com/?q=FISA+702&t=web) if you're interested in digging a bit deeper.
 
 Basically US federal law enforcement can demand data from any American company regardless of where it is stored - i.e.
 the FBI can compel Google to hand over all data stored in IKEA's GCP account, regardless of which regions IKEA are
