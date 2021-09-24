@@ -1,7 +1,7 @@
 ---
 title: "The Search for a GDPR Compliant Webinar Platform"
 description: "How hard can it be to host a GDPR-compliant webinar?"
-date: 2021-09-21
+date: 2021-09-24
 thumb: "1280px-EU_flag_in_Italy.jpg"
 thumbCaption: "Credit: Tiia Monto, CC BY-SA 3.0 via Wikimedia Commons"
 thumbCaptionHref: "https://commons.wikimedia.org/wiki/File:EU_flag_in_Italy.jpg"
