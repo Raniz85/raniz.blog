@@ -9,10 +9,10 @@ tags:
     - gdpr
     - webinar
 ---
-So, the Swedish consulting firm I work at - Factor 10 - are hosting a webinar about GDPR compliance. The basic premise
-is that a lot of people (and companies) assume that it's legal to use services from American providers (such as Amazon
-Web Services, Microsoft OneDrive, or Google Workspace) if they just store data about EU citizens in the EU and the
-service provider says they're GDPR compliant. **This is not the case.**
+So, the Swedish consulting firm I work at - [Factor 10](https://factor10.com) - are hosting a webinar about GDPR
+compliance. The basic premise is that a lot of people (and companies) assume that it's legal to use services from
+American providers (such as Amazon Web Services, Microsoft OneDrive, or Google Workspace) if they just store data about
+EU citizens in the EU and the service provider says they're GDPR compliant. **This is not the case.**
 
 So, of course we're going to host that webinar on Zoom like we've always done, right?
 
