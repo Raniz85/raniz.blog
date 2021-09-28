@@ -1,7 +1,8 @@
 const pluginTailwind = require('eleventy-plugin-tailwindcss');
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const markdownIt = require("markdown-it");
-const mila = require("markdown-it-link-attributes");
+const markdownIt = require('markdown-it');
+const mila = require('markdown-it-link-attributes');
+const pluginRss = require('@11ty/eleventy-plugin-rss');
 
 const markdownItOptions = {
   html: true
@@ -16,6 +17,10 @@ const milaOptions = {
 const markdownLib = markdownIt(markdownItOptions).use(mila, milaOptions);
 
 module.exports = (config) => {
+
+  config.setFrontMatterParsingOptions({
+    excerpt: true
+  })
 
   config.setLibrary("md", markdownLib);
 
@@ -36,6 +41,7 @@ module.exports = (config) => {
 
   config.addFilter('readableDate', require('./lib/filters/readableDate'));
   config.addFilter('minifyJs', require('./lib/filters/minifyJs'));
+  config.addFilter('toHTML', str => new markdownIt(markdownItOptions).renderInline(str));
 
   config.addTransform('minifyHtml', require('./lib/transforms/minifyHtml'));
 
@@ -45,6 +51,7 @@ module.exports = (config) => {
   config.addCollection('pagedPostsByTag', require('./lib/collections/pagedPostsByTag'));
 
   config.addPlugin(syntaxHighlight);
+  config.addPlugin(pluginRss);
 
   return {
     dir: {

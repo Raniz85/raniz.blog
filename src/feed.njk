@@ -1,0 +1,48 @@
+---json
+{
+  "permalink": "feed.xml",
+  "eleventyExcludeFromCollections": true,
+  "metadata": {
+    "title": "Raniz' Blog",
+    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "url": "https://raniz.blog/",
+    "feedUrl": "https://raniz.blog/feed.xml",
+    "author": {
+      "name": "Daniel Raniz Raneland"
+    }
+  }
+}
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ metadata.title }}</title>
+  <subtitle>{{ metadata.subtitle }}</subtitle>
+  <link href="{{ metadata.feedUrl }}" rel="self"/>
+  <link href="{{ metadata.url }}"/>
+  <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <id>{{ metadata.url }}</id>
+  <author>
+    <name>{{ metadata.author.name }}</name>
+  </author>
+  {%- for post in collections.posts %}
+  {% if not post.data.draft %}
+  {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(metadata.url) }}{% endset %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="{{ absolutePostUrl }}"/>
+    <updated>{{ post.date | dateToRfc3339 }}</updated>
+    <id>{{ absolutePostUrl }}</id>
+    {%- if post.data.page.excerpt -%}
+      <content type="html">
+      <![CDATA[
+        {% if post.data.thumb %}
+        <img src="{{ post.data.thumb | url | absoluteUrl(metadata.url) }}" width="960" height="500" alt="{{ thumbAlt | default('Title image') }}"/>
+        {% endif %}
+        {{ post.data.page.excerpt | toHTML | safe }}
+      ]]>
+      </content>
+    {%- endif -%}
+  </entry>
+  {% endif %}
+  {%- endfor %}
+</feed>

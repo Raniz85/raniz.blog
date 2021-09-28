@@ -9,6 +9,7 @@
             {% for item in menu %}
             <a href="{{ item.url | url }}" {% if item.newTab %}target="_blank" rel="noopener" {% endif %}class="block mt-4 md:inline-block md:mt-0 font-medium text-gray-700 hover:text-teal-600 text-base mr-4">{{ item.label }}</a>
             {% endfor %}
+            <a title="RSS" href="{{ '/feed.xml' | url }}" class="float-right"><i class="fas fa-rss"></i></a>
         </nav>
         <form id="search" action="{{ '/search' | url }}" class="order-last sm:order-none flex-grow items-center justify-end hidden sm:block mt-6 sm:mt-0">
             <label class="visually-hidden" for="header-searchbox">Search here ...</label>

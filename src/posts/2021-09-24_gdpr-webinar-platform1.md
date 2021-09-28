@@ -16,6 +16,8 @@ EU citizens in the EU and the service provider says they're GDPR compliant. **Th
 
 So, of course we're going to host that webinar on Zoom like we've always done, right?
 
+---
+
 Maybe not, so let's take a moment and write down a few reasonable requirements for our new webinar platform:
 
 1. GDPR compliant
