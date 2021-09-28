@@ -39,6 +39,7 @@
         <img src="{{ post.data.thumb | url | absoluteUrl(metadata.url) }}" width="960" height="500" alt="{{ thumbAlt | default('Title image') }}"/>
         {% endif %}
         {{ post.data.page.excerpt | toHTML | safe }}
+        <p><a href="{{ absolutePostUrl }}">Continue reading</a></p>
       ]]>
       </content>
     {%- endif -%}
