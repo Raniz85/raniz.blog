@@ -97,9 +97,9 @@ It may be possible to hack something together to get a video file from a recorde
 us so we left BBB behind and moved on to the next contender:
 
 # Jitsi Meet
-I stumbled upon [Jitsi Meet](https://meet.jit.si/) while searching for ways to blur my background on BBB. BBB has no
-such feature, but in a thread discussing it someone mentioned that Jitsi Meet has that functionality, and being open
-source maybe BBB could just build on that.
+I stumbled upon [Jitsi Meet](https://meet.jit.si/) while searching for ways to blur my background on BBB. In a thread
+discussing BBB's lack of this someone mentioned that Jitsi Meet has that functionality, and maybe BBB could just build
+on that since Jitsi Meet is open source.
 
 Jitsi Meet is an open source video meeting platform currently developed by 8x8 Inc. but has previously been owned by
 Atlassian and BlueJimp - which is the company the original author (Emil Ivov) founded. It is licensed under the
