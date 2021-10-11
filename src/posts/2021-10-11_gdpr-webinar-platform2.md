@@ -1,10 +1,9 @@
 ---
 title: "The Search for a GDPR Compliant Webinar Platform: Open Source Edition"
 description: "Are there any good open source webinar platforms out there?"
-date: 2021-10-08
+date: 2021-10-11
 thumb: "1280px-OSI_flag_in_Italy.jpg"
 thumbCaption: "Credit: Raniz, Tiia Monto via Wikimedia Commons, and the OSI, CC BY-SA 3.0"
-draft: true
 tags: 
     - gdpr
     - webinar
