@@ -5,7 +5,6 @@ date: 2021-11-01
 thumb: "1280px-Container_Ship.jpg"
 thumbCaption: "Credit: Muhammad Mahdi Karim, GPL 1.2 via Wikimedia Commons"
 thumbCaptionHref: "https://commons.wikimedia.org/wiki/File:Container_Ship.jpg"
-draft: true
 tags: 
     - firefox
     - containers
