@@ -1,7 +1,7 @@
 ---
 title: "Isolated Browser Tabs with Firefox Multi-Account Containers"
 description: "Log in to different accounts in different tabs"
-date: 2021-11-01
+date: 2021-12-06
 thumb: "1280px-Container_Ship.jpg"
 thumbCaption: "Credit: Muhammad Mahdi Karim, GPL 1.2 via Wikimedia Commons"
 thumbCaptionHref: "https://commons.wikimedia.org/wiki/File:Container_Ship.jpg"
