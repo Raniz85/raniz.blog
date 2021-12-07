@@ -23,7 +23,8 @@ A few years ago I ran across [Firefox Multi-Account Containers](https://support.
 I used it to be able to log in to our development and production AWS accounts at the same time. I now use it to keep
 customer logins separate from each other. This means tha I can for example have multiple tabs with Microsoft Teams open
 for different customers. This is especially good when working with large corporations whose SSO have a tendency to log
-you in everywhere automatically.
+you in everywhere automatically. If you can pinpoint those sites to specific domains you can even pin them to a
+container so that they always open there!
 
 I'm not going to go into more detail here since Mozilla's own page does it much better so head over there and give it a
 spin.
