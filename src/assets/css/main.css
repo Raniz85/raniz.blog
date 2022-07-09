@@ -8,6 +8,21 @@
     }
 }
 
+@layer components {
+    .prose code {
+        font-family: monospace;
+        background: #fdf6e3;
+        color: #586e75;
+        display: inline-block;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+
+    .prose code::before, .prose code::after {
+        content: "";
+    }
+}
+
 @layer utilities {
     .header-shadow {
         box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 5px -1px rgba(0, 0, 0, 0.06)

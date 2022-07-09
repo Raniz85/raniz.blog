@@ -3,6 +3,7 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const markdownIt = require('markdown-it');
 const mila = require('markdown-it-link-attributes');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
+const localImages = require('./lib/transforms/localImages');
 
 const markdownItOptions = {
   html: true
@@ -31,6 +32,7 @@ module.exports = (config) => {
   config.setDataDeepMerge(true);
 
   config.addPassthroughCopy('src/assets/img/**/*');
+  config.addPassthroughCopy('src/posts/**/*.webp');
   config.addPassthroughCopy({ 'src/posts/img/**/*': 'assets/img/' });
   config.addPassthroughCopy('src/.htaccess');
 
@@ -44,6 +46,9 @@ module.exports = (config) => {
   config.addFilter('toHTML', str => new markdownIt(markdownItOptions).renderInline(str));
 
   config.addTransform('minifyHtml', require('./lib/transforms/minifyHtml'));
+  config.addTransform('local-images', function(content, outputPath) {
+    return localImages(this, content, outputPath);
+  })
 
   config.addCollection('posts', require('./lib/collections/posts'));
   config.addCollection('tagList', require('./lib/collections/tagList'));
@@ -53,13 +58,24 @@ module.exports = (config) => {
   config.addPlugin(syntaxHighlight);
   config.addPlugin(pluginRss);
 
+  config.addNunjucksFilter("titleImage", (value, post) => {
+    if (value.startsWith("/") || value.startsWith("https://")) {
+      return value;
+    }
+    return `${post.url}/${value}`;
+  });
+
   return {
     dir: {
       input: 'src',
       output: 'dist'
     },
     // pathPrefix: "/subfolder/",
-    templateFormats: ['md', 'njk', 'html'],
+    templateFormats: [
+      'md',
+      'njk',
+      'html',
+    ],
     dataTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk'
   };
