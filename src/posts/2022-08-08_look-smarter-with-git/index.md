@@ -1,7 +1,7 @@
 ---
 title: "Look Smarter With Git: Rewriting Your History"
 description: "If you don't like your Git history; change it!"
-date: 2022-06-15
+date: 2022-08-08
 thumb: "1280px-history-books.jpg"
 thumbCaption: "Credit: Open Grid Scheduler, Public domain, via Flickr"
 thumbCaptionHref: "https://www.flickr.com/photos/opengridscheduler/"
