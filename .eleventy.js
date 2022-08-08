@@ -64,6 +64,9 @@ module.exports = (config) => {
     }
     return `${post.url}/${value}`;
   });
+  config.addNunjucksShortcode("today", function() {
+    return new Date(Date.now()).toISOString().slice(0, 10);
+  });
 
   return {
     dir: {
