@@ -11,7 +11,7 @@ tags:
 - vcs
 ---
 # Intro
-This blog post is co-authored by Nizar.
+This blog post is co-authored by [Nizar](https://nizar.se).
 
 As developers, we are encouraged to commit code changes early and frequently. A benefit of which is being able to revert to previous states when needed. This luxury, however, can come at the expense of a rather messy Git history; one that communicates how the intended changes were reached rather than what they are.
 
