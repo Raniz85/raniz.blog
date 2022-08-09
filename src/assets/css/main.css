@@ -10,12 +10,37 @@
 
 @layer components {
     .prose code {
-        font-family: monospace;
-        background: #fdf6e3;
-        color: #586e75;
+        font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        font-size: 1em;
+        font-weight: 400;
+        background: #fdf6e3; /* base03 */
+        color: #657b83; /* base00 */
         display: inline-block;
         padding-left: 0.5em;
         padding-right: 0.5em;
+    }
+
+    .prose pre {
+        background-color: #fdf6e3; /* base3 */
+        color: #657b83; /* base00 */
+        font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        font-size: 1em;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+
+        line-height: 1.5;
+
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
     }
 
     .prose code::before, .prose code::after {
