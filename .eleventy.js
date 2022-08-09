@@ -68,6 +68,8 @@ module.exports = (config) => {
     return new Date(Date.now()).toISOString().slice(0, 10);
   });
 
+  config.addWatchTarget("src/posts/**");
+
   return {
     dir: {
       input: 'src',
