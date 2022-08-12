@@ -1,0 +1,32 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
+      - name: Install LFTP
+        run: DEBIAN_FRONTEND=noninteractive sudo apt-get install -y lftp
+
+      - name: Set up FTP credentials
+        run: |
+          echo -n "machine ftp.cluster029.hosting.ovh.net login nmorbrz password " > ~/.netrc
+          printenv FTP_PASSWORD >>~/.netrc
+        env:
+          FTP_PASSWORD: "${{ secrets.FTP_PASSWORD }}"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Deploy
+        run: yarn deploy
