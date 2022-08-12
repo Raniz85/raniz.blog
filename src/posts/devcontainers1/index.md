@@ -1,11 +1,10 @@
 ---
 title: "Isolated Development With Containers: Part 1"
 description: "Preventing different projects from jamming each other"
-date: 2022-08-11
+date: 2022-08-12
 thumb: "1280px-fresh-squeezed.webp"
 thumbCaption: "Credit: Caitlin Regan, CC BY 2.0, Via Flickr"
 thumbCaptionHref: "https://www.flickr.com/photos/caitlinator/"
-draft: true
 tags: 
     - lxd
     - containers
@@ -16,15 +15,17 @@ I'm a software consultant. That means I get to see lots of different projects, m
 stack and required toolset. That also means that all those tools required to develop and run a project needs to be
 installed somewhere.
 
-Some customers require me to use a computer provided by them in which case this isn't an issue - once I'm done with the
-project I hand back the computer and forget all about which tools were installed. Some customers however either doesn't
-provide a computer or allow me to bring my own (something I prefer since I've set up my computer _just_ the way I want
-it). In this case, said tools may eventually clutter up my computer or even cause conflicts with each other.
+Some customers require me to use a computer provided by them in which case this isn't an issue - once I'm finished with
+the project I hand back the computer and forget all about which tools were installed. Some customers however either
+doesn't provide a computer or allow me to bring my own (something I do prefer since I've set up my computer _just_ the
+way I want it). In this case, said tools may eventually clutter up my computer or even cause conflicts with each other.
+
+---
 
 I run [Arch Linux](https://archlinux.org/). I do this because I like the control it gives me. Arch Linux is a _rolling
 release_ distribution, this means that updates happen often and most package versions follow upstream release cadence.
-This is in contrast to something like Ubuntu or Fedora which releases a set of packages and then typically only release
-security- and bugfixes until the next OS release which will contain major version upgrades.
+This is in contrast to something like Debian or Fedora which release a set of packages and then typically only release
+minor upgrades for security- and bugfixes until the next OS release which will contain major version upgrades.
 
 Because most packages in Arch are updated shortly after a new version has been released upstream it may sometimes be
 difficult (or even impossible) to install an older version of something.
@@ -36,11 +37,12 @@ Let's take Java as an example. At the time of writing this you can install:
 * Java 17
 * Java 18
 
-Working on a project that is still on Java 7? Tough luck.
+Working on a project that is using Java 13? Tough luck.
 
-Now, you could always download [OpenJDK](https://openjdk.java.net/) yourself and install it to /opt, but do that often
-enough and eventually /opt starts to become rather cluttered and you may not remember which project depends on which
-version. Not to mention the hassle of switching between different versions of Java for different projects.
+Now, I can always download [OpenJDK](https://openjdk.java.net/) myself and install it to /opt, but do that often
+enough and eventually /opt starts to become rather cluttered. Additionally, I may not remember which project depends
+on which version, making it risky to uninstall something. Not to mention the hassle of switching between different
+versions of Java for different projects.
 
 # Running Projects in Isolation
 So, to the point of this post. I decided I wanted to split up my computer into separate, isolated parts - one for me and
@@ -77,7 +79,7 @@ https://linuxcontainers.org/lxd/getting-started-cli/).
 
 The rest of this post assumes that you've set up LXD to run unprivileged containers (which is the recommended way).
 
-One thing worth noting here is that ran into issues with the network for my containers. This turned out to be because
+One thing worth noting here is that I ran into issues with the network for my containers. This turned out to be because
 LXD and [Firewalld](https://firewalld.org/) didn't really get along. There is a section on
 this in the [official guide](https://linuxcontainers.org/lxd/docs/master/networks). I did not get that to work however 
 so instead I created a new zone for LXD and put `lxdbr0` in that.
@@ -113,9 +115,10 @@ Now that you have your container, you probably want to access some files from th
 do this by creating _devices_ that mount a host directory inside the container.
 
 Here's how you mount a host directory inside the container so that you can access your ssh key and configuration, let's
-mount the _Documents_ directory inside the container:
+mount my _Documents_ directory inside the container at the same location as on the host. Let's call the mount
+_raniz-documents_:
 ```shell
-$ lxc config device add archlinux Documents disk source=/home/raniz/Documents path=/home/raniz/Documents
+$ lxc config device add archlinux raniz-documents disk source=/home/raniz/Documents path=/home/raniz/Documents
 ```
 
 Now, let's try to create a file in the _Documents_ directory.
@@ -143,17 +146,17 @@ root     3878484   22304  0 07:36 ?        00:00:00 /usr/bin/lxd forkexec archli
 ```
 
 The first row contains my invocation of `lxc exec archlinux sleep 10s`. The second row is the command that the LXD
-daemon is executing to actually run the command in the container. And the third row is the actual command running inside
-the container.
+daemon is executing to run the command in the container. And the third row is the actual command running inside the
+container.
 
 Note that my command shows up as my user (_raniz_), the lxd command is running as _root_, but the command in the
 container is running as UID 100000, which is a user that doesn't exist on the host. If we run `id` inside the container
 it will tell us that our UID is 0 (_root_), but outside the container it is actually 100000. This explains why not even
 the root user of the container is allowed to create files in my _Documents_ directory - because it's actually not root
-but rather user 100000, which has no permissions to my _Documents_ directory. The same goes for the _raniz_ user, but
-with effective UID 101000 instead.
+but rather user 100000, which has no permissions to my _Documents_ directory. The same goes for the _raniz_ user inside
+the container, but with effective UID 101000 instead.
 
-To allow our user inside the container access files on devices originating outside the container we have two options:
+To allow our user inside the container to access files on devices originating outside the container we have two options:
 
 1. Create a group on the host with a GID that exists inside the container
 2. Map the user on the host to the user inside the container
@@ -162,7 +165,7 @@ To allow our user inside the container access files on devices originating outsi
 This is pretty straightforward: we create a new group on the host with a GID that exists inside the container and grant
 this group the permissions we want.
 
-In our Arch Linux container, the _users_ group has GID 984, this means that it's effective GID on the host will be
+In our Arch Linux container, the _users_ group has GID 984, this means that its effective GID on the host will be
 100984. If we create that group and allow it to write to the _Documents_ directory we should be fine.
 
 ```shell
@@ -178,15 +181,15 @@ Changing ownership:
 ```shell
 $ chown :lxdusers Documents
 ```
-(if the above command doesn't work it's probably because your groups haven't updated. Either log out and in again or 
-prefix the command with `sudo -u $USER ` to run it in a new shell).
+(if the above command doesn't work it's probably because your group memberships haven't updated in your current shell.
+Either log out and in again or prefix the command with `sudo -u $USER ` to run it in a new shell).
 
 Using ACLs:
 ```shell
 $ setfacl -m "g:lxdusers:rwx" Documents
 ```
 
-We can now create files in _Documents_ from our container:
+The _raniz_ user can now create files in _Documents_ inside our container:
 
 ```shell
 $ lxc exec archlinux -- sudo -u raniz touch ~/Documents/test
@@ -202,8 +205,8 @@ $ stat -c "%A %U (%u), %G (%g)" ~/Documents/test
 ```
 
 This now means that our host user doesn't really have ownership of files created inside the container. For me, that is a
-problem and the solution to that is to make the user inside the container have the effective UID be the same as that
-of the host user.
+problem and the solution to that is to make the UID of the user inside the container be the same as that of the host
+user.
 
 To do this we need to do two things:
 
@@ -212,7 +215,7 @@ To do this we need to do two things:
 
 ### Granting LXD Permissions to Map Users and Groups
 The files _/etc/subuid_ and _/etc/subgid_ which you probably touched when setting up LXD tells the kernel who is allowed
-to map which UIDs. The information we put in here controls which effective UIDs and GIDs LXD are allowed to use.
+to map which UIDs and GIDs. The information we put in here controls which effective UIDs and GIDs LXD are allowed to use.
 
 To allow LXD to map our UID and our GID to the container we need to add them to this file:
 
@@ -222,7 +225,7 @@ $ echo "root:$(id -g):1" | sudo tee -a /etc/subgid
 ```
 
 This allows LXD to map our UID and GID (1000 and 984 in my case) in our containers. The next step is to tell LXD how to
-do this
+do this.
 
 ### Telling LXD to Map Users and Groups
 We can tell LXD to map an UID on the host to an UID inside the container and vice versa with the
@@ -255,7 +258,7 @@ $ stat -c "%A %U (%u), %G (%g)" ~/Documents/test2
 
 And this means that our user inside the container now has the same effective UID as our user on the host.
 
-Now, this means that our container is a little bit less secure since the user inside the container has the exact same
+Now, this means that our container is a little less secure since the user inside the container has the exact same
 privileges as the user outside the container. With ACLs and a group on the host you get more fine-grained control over
 what the user inside the container can access. 
 
@@ -265,8 +268,8 @@ finished with a project because then I can just delete the entire container and 
 installed on my system.
 
 # Next Steps
-Now that we're up and running and can manipulate the host filesystem the next step is to make the container a bit more
-useable.
+Now that we're up and running and can manipulate the host filesystem, the next step is to make the container a bit more
+usable.
 
 That is too much for this post though, so in the next one I will show how to enable graphical applications, sound,
-SSH access, DNS and make setting up new containers a bit more ergonomic using LXD profiles.
+SSH access, DNS and make setting up new containers a bit more ergonomic with LXD profiles.
