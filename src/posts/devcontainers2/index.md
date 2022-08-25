@@ -188,7 +188,7 @@ the environment variable in the profile only applies to `lxc exec`.
 
 # Sound
 Getting sound working is essentially the same as for graphical applications, but instead of mounting a directory we
-mount a proxy socket instead. The profile for PulseAudio looks like this:
+mount a proxy socket. The profile for PulseAudio looks like this:
 
 ```
 config:
@@ -213,3 +213,17 @@ used_by:
 Adjust the UID and GID if needed. Note that you'll need to configure PULSE_SERVER in your environment if using SSH.
 
 # Working with Containers
+So, how do I work with my containers?
+
+I have one base container that I've set up. It could be the _archlinux_ container we set up in these posts. And when I
+start on a new project I clone that container using:
+
+```shell
+$ lxc copy archlinux projectName
+```
+
+This gives me a working container with everything set up in less than a second. I can then modify this container as I
+see fit by adding or removing profiles, mounting host directories and installing the tools that I need.
+
+If I need a distribution other than Arch Linux I can fairly quickly set up a new container using the same profiles,
+though I would need to set up the base system from scratch, including the user account and group.
