@@ -27,10 +27,24 @@ an [Aspell](http://aspell.net/) dictionary, capitalizes one word and separates t
 characters. The default language is Swedish, and to only use words that are between 4 and 10 characters in length. You
 can change these via options - or you can just change the defaults in the code.
 
-Here's an example (don't use this as your password):
-```shell
+Here's a a few example runs (don't use these as your password):
+```
 $ mkpassphrase
 kryssad#Bekymret1lekstugor
+
+$ mkpassphrase -p
+78339
+akvarie8Vises@äntrade
+
+$ mkpassphrase -l en
+forenoons$Subbranch6rorting
+
+$ mkpassphrase -n 5
+Bokstavlig#tenarna8skrymteri8alkemin@fristaden
+
+$ mkpassphrase --min-length 1 --max-length 100 -p
+119591
+underrättelser&Sparrade9samspråkades
 ```
 
 {% github_gist "Raniz85/1209eb09fa8e5cedc0106787aa0888cd" %}
