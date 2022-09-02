@@ -67,6 +67,9 @@ module.exports = (config) => {
   config.addNunjucksShortcode("today", function() {
     return new Date(Date.now()).toISOString().slice(0, 10);
   });
+  config.addNunjucksShortcode("github_gist", function(id) {
+    return `<script src="https://gist.github.com/${id}.js"></script>`;
+  })
 
   config.addWatchTarget("src/posts/**");
 
