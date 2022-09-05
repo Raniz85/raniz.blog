@@ -107,8 +107,9 @@ using
 $ lxc exec archlinux /bin/bash
 ```
 
-This gives you a root shell that you can use to set up the VM, create a regular user and install whatever packages you
-need.
+This gives you a root shell that you can use to set up the VM,
+[create a regular user](https://wiki.archlinux.org/title/Users_and_groups#User_management) and install whatever packages
+you need.
 
 # Accessing Host Files
 Now that you have your container, you probably want to access some files from the host in the container. With _LXD_ you

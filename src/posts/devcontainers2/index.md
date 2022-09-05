@@ -39,12 +39,12 @@ This will open up an editor where you can edit the configuration for your profil
 
 ```
 config:
-  raw.idmap: |
     uid 1000 1000
-    gid 984 984
+    gid 984  984
 ```
 
-Replacing the UID and GID with the values you used in the last post if they're different to mine.
+Replacing the UID and GID with the values you used in the last post if they're different to mine and remembering that
+the first number is the ID on the host and the second the ID in the container that should map to that host-ID.
 
 ## Applying Profiles
 Now that we've created a profile we can add it to a container, so let's create a new container and assign the profile to
@@ -66,7 +66,9 @@ $ lxc exec archlinux2 cat /proc/self/uid_map
       1001     101001      64535
 ```
 
-And we can see that UID 1000 is indeed mapped to itself.
+And on the second row we can see that uid 1000 inside the container is mapped to uid 1000 outside the container (if
+you're intersted in the full format of the file, you can find it under
+[the man page for user_namespaces](https://man7.org/linux/man-pages/man7/user_namespaces.7.html))
 
 ## Defining Mounts in Profiles
 Another thing that we probably want to do with profiles is defining common directories that we want to mount inside our
@@ -119,14 +121,95 @@ Luckily, that's rather easy if you're using [systemd-resolved](https://wiki.arch
 which you are using right? Because it's pretty
 [awesome](https://fedoramagazine.org/systemd-resolved-introduction-to-split-dns/).
 
-Anyways, here's a one-liner that turns on DNS resolution for LXD containers:
+Anyways, here's two commands that together turn on DNS resolution for LXD containers:
 
 ```shell
-$ systemd-resolve --interface lxdbr0 --set-domain '~lxd' --set-dns $(lxc network get lxdbr0 ipv4.address | cut -d / -f 1)
+$ resolvectl domain lxdbr0 '~lxd'
+$ resolvectl dns lxdbr0 $(lxc network get lxdbr0 ipv4.address | cut -d / -f 1)
 ```
 
 It assumes that you're using `lxdbr0` - which is the default bridge interface for LXD. If you're using another network
 setup you'll have to enter some variation on the above command.
+
+What we do here is tell systemd resolved that all lookups for domains ending in _.lxd_ should happen via _lxdbr0_ and
+go to LXD's DNS server (which is listening on the IP address assigned to _lxdbr0_, which the last part of the command
+extracts).
+
+To see that it's working, we can now ping the container using the name we gave it:
+
+```shell
+$ ping -c 1 archlinux.lxd
+PING archlinux.lxd(archlinux.lxd (fd42:5390:2724:be87:216:3eff:fe59:4582)) 56 data bytes
+64 bytes from archlinux.lxd (fd42:5390:2724:be87:216:3eff:fe59:4582): icmp_seq=1 ttl=64 time=0.063 ms
+
+--- archlinux.lxd ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.063/0.063/0.063/0.000 ms
+```
+
+This only works until the _lxdbr0_ interface is brought down, which happens when LXD stops. Then we need to run
+those two commands again to make it work. To see this we can restart LXD which will recreate _lxdbr0_ and thus
+remove the rules.
+
+```shell
+$ sudo systemctl restart lxd.service
+$ ping -c 1 archlinux.lxd
+ping: archlinux.lxd: Name or service not known
+```
+
+## Persisting It
+
+As per [the official documentation](https://linuxcontainers.org/lxd/docs/stable-4.0/networks/), we can make it
+persistent by creating a Systemd service file that makes sure that these commands are executed when _lxdbr0_ comes
+up.
+
+To do this, we create a new systemd service called _lxd-dns-lxdbr0.service_:
+
+```shell
+$ cat | sudo tee /etc/systemd/system/lxd-dns-lxdbr0.service <<<EOF
+[Unit]
+Description=LXD per-link DNS configuration for lxdbr0
+BindsTo=sys-subsystem-net-devices-lxdbr0.device
+After=sys-subsystem-net-devices-lxdbr0.device
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/resolvectl dns lxdbr0 $(lxc network get lxdbr0 ipv4.address | cut -d / -f 1)
+ExecStart=/usr/bin/resolvectl domain lxdbr0 '~lxd'
+
+[Install]
+WantedBy=sys-subsystem-net-devices-lxdbr0.device
+EOF
+```
+
+Note that this will hardcode the IP address of the LXD DNS server into the file, so if you ever change it, you'll have
+to update this file to reflect the changes.
+
+We can now enable and start this service and we should have DNS resolution again:
+
+```shell
+$ sudo systemctl enable --now lxd-dns-lxdbr0.service
+$ ping -c 1 archlinux.lxd
+PING archlinux.lxd(archlinux.lxd (fd42:5390:2724:be87:216:3eff:fe59:4582)) 56 data bytes
+64 bytes from archlinux.lxd (fd42:5390:2724:be87:216:3eff:fe59:4582): icmp_seq=1 ttl=64 time=0.034 ms
+
+--- archlinux.lxd ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.034/0.034/0.034/0.000 ms
+```
+
+We can also restart LXD to see that it's still working after a restart:
+
+```shell
+$ sudo systemctl restart lxd.service
+$ ping archlinux.lxd -c 1
+PING archlinux.lxd(archlinux.lxd (fd42:5390:2724:be87:216:3eff:fe59:4582)) 56 data bytes
+64 bytes from archlinux.lxd (fd42:5390:2724:be87:216:3eff:fe59:4582): icmp_seq=1 ttl=64 time=0.043 ms
+
+--- archlinux.lxd ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.043/0.043/0.043/0.000 ms
+```
 
 # Graphical Applications
 When it comes to graphical applications we have two ways of enabling applications inside the container to display
