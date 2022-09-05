@@ -1,7 +1,7 @@
 ---
 title: "Isolated Development With Containers: Part 2"
 description: "Preventing different projects from jamming each other"
-date: 2022-08-12
+date: 2022-09-05
 thumb: "1280px-nescafe-jars-production.jpg"
 thumbCaption: "Credit: Nestlé, CC BY-NC-ND 2.0, Via Flickr"
 thumbCaptionHref: "https://www.flickr.com/photos/nestle/"
@@ -26,7 +26,7 @@ In this post I will elaborate on this and make it a bit more useful by enabling:
 An LXD profile is a named, reusable configuration snippet. These can be anything you can set in the container
 configuration.
 
-To show LXD profiles, let's convert our UID and GID mappings into a profile and apply it to a new container.
+To show how profiles work, let's convert our UID and GID mappings into a profile and apply it to a new container.
 
 First, create a new LXD profile, let's call it `devcontainer`:
 
@@ -154,7 +154,7 @@ config:
   environment.DISPLAY: :0
 description: X11 LXD profile
 devices:
-  X0:
+  X11:
     path: /tmp/.X11-unix
     source: /tmp/.X11-unix
     type: disk
@@ -187,8 +187,8 @@ You also need to configure the `DISPLAY` variable in your environment if you're 
 the environment variable in the profile only applies to `lxc exec`.
 
 # Sound
-Getting sound working is essentially the same as for graphical applications, but instead of mounting a directory we
-mount a proxy socket. The profile for PulseAudio looks like this:
+Enabling sound is essentially the same as graphical applications, but instead of mounting a directory we mount a proxy
+socket. The profile for PulseAudio looks like this:
 
 ```
 config:
@@ -227,3 +227,15 @@ see fit by adding or removing profiles, mounting host directories and installing
 
 If I need a distribution other than Arch Linux I can fairly quickly set up a new container using the same profiles,
 though I would need to set up the base system from scratch, including the user account and group.
+
+## Throwing it Away
+Once I'm done with a project and certain that I don't need the tooling anymore I can just throw the container away and 
+reclaim any disk space it took up.
+
+```shell
+$ lxc delete projectName
+```
+
+I'm still looking for a good way to pack up a container into some sort of archive and upload that to a cloud service
+so that I can easily restore it if I should ever need it again. That might become part 3 of this series if I ever figure
+it out.
