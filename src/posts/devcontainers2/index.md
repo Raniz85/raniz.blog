@@ -166,7 +166,7 @@ up.
 To do this, we create a new systemd service called _lxd-dns-lxdbr0.service_:
 
 ```shell
-$ cat | sudo tee /etc/systemd/system/lxd-dns-lxdbr0.service <<<EOF
+$ cat | sudo tee /etc/systemd/system/lxd-dns-lxdbr0.service <<EOF
 [Unit]
 Description=LXD per-link DNS configuration for lxdbr0
 BindsTo=sys-subsystem-net-devices-lxdbr0.device
