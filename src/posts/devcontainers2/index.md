@@ -1,10 +1,10 @@
 ---
 title: "Isolated Development With Containers: Part 2"
-description: "Preventing different projects from jamming each other"
+description: "Making LXD containers usable for daily work"
 date: 2022-09-05
-thumb: "1280px-nescafe-jars-production.jpg"
-thumbCaption: "Credit: Nestlé, CC BY-NC-ND 2.0, Via Flickr"
-thumbCaptionHref: "https://www.flickr.com/photos/nestle/"
+thumb: "1280px-bentobox.webp"
+thumbCaption: "Credit: Lorenia Regan, CC BY-NC-ND 2.0, Via Flickr"
+thumbCaptionHref: "https://www.flickr.com/photos/lorenia/"
 draft: true
 tags: 
     - lxd
