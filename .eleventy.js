@@ -62,7 +62,7 @@ module.exports = (config) => {
     if (value.startsWith("/") || value.startsWith("https://")) {
       return value;
     }
-    return `${post.url}/${value}`;
+    return `/${post.url}/${value}`;
   });
   config.addNunjucksShortcode("today", function() {
     return new Date(Date.now()).toISOString().slice(0, 10);

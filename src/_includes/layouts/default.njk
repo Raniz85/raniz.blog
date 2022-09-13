@@ -24,7 +24,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if title %}
+    <title>Raniz' Blog | {{ title }}</title>
+    {% else %}
     <title>Raniz' Blog</title>
+    {% endif %}
     <meta name="title" content="{{ metaTitle }}">
     <meta name="description" content="{{ metaDesc }}">
     <meta name="keywords" content="{{ metaKeywords }}">
@@ -40,7 +44,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
     <link rel="stylesheet" href="{{ '/assets/css/prism-solarizedlight.css' | url }}">
-</head>	
+    {% if title %}
+    <meta property="og:title" content="{{ title }}"/>
+    {% endif %}
+    {% if description %}
+    <meta property="og:description" content="{{ description }}"/>
+    {% elseif templateContent %}
+    <meta property="og:description" content="{{ templateContent | striptags | truncate(90, true) }}"/>
+    {% endif %}
+    {% if thumb %}
+    <meta property="og:image" content="https://raniz.blog{{ thumb | titleImage(page) | url }}"/>
+    {% endif %}
+</head>
 
 <body class="flex flex-col h-screen bg-white text-gray-800 break-words">
     {% include "partials/header.njk" %}
