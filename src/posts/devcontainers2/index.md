@@ -1,11 +1,10 @@
 ---
 title: "Isolated Development With Containers: Part 2"
 description: "Making LXD containers usable for daily work"
-date: 2022-09-05
+date: 2022-09-13
 thumb: "1280px-bentobox.webp"
 thumbCaption: "Credit: Lorenia Regan, CC BY-NC-ND 2.0, Via Flickr"
 thumbCaptionHref: "https://www.flickr.com/photos/lorenia/"
-draft: true
 tags: 
     - lxd
     - containers
