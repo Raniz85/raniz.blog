@@ -1,11 +1,10 @@
 ---
 title: "The GDPR Compliant Webinar Platform Failed Us"
 description: "Turns out that video processing on the CPU isn't very fast"
-date: 2022-09-21
+date: 2022-09-29
 thumb: "1280px-video-glitch.webp"
 thumbCaption: "Credit: Blake Patterson via Flickr,  CC BY 2.0"
 thumbCaptionHref: "https://www.flickr.com/photos/blakespot/"
-draft: true
 tags: 
     - gdpr
     - webinar
@@ -15,22 +14,23 @@ tags:
 Last year, I detailed our search for a GDPR-compliant webinar platform in [two](/2021-09-24_gdpr-webinar-platform1)
 [posts](/2021-10-11_gdpr-webinar-platform2).
 
-We actually held the webinar before the second post went live and I detailed my thoughts on the setup afterwards in the
-second post. Everything was all well and good and when it came time to do another GDPR-related webinar last week we
-went with the exact same setup - why fix something that isn't broken?
+We actually held that webinar before the second post went live and I detailed my thoughts on the setup afterwards in it.
+We have been using this setup for multiple webinars since so when it came time to do another GDPR-related webinar last
+week we went with the exact same setup - why fix something that isn't broken?
 
-It turns it out it was indeed a bit broken, and it did completely break down on us during the webinar.
+It turns it out it was slightly broken, and it did completely break down on us during the webinar.
 ---
 
 During the webinar we received complaints about the stream lagging and being choppy. This is something that we saw
-during our technological dress-rehearsal earlier in the week but that I resolved by doubling the number of CPUs and
-memory of the instance - we had scaled it down after the previous webinar to save on monthly costs.
+during our technological dress-rehearsal earlier in the week but that was solved by doubling the number of CPUs and
+memory of the instance - we had scaled it down after the previous webinar to save on costs (we also turn it off when
+it's not in use).
 
-To explain what actually happened here I need to go into some detail about how the video broadcasting setup works in
-Jitsi Meet first.
+To explain what actually happened I need to go into some detail about how the video broadcasting setup works in Jitsi
+Meet first.
 
 # Meet Jibri
-[Jibri](https://github.com/jitsi/jibri) is the Jitsi BRoadcasting Infrastructure. It is the piece of the Jitsi puzzle
+[Jibri](https://github.com/jitsi/jibri) is the JItsi BRoadcasting Infrastructure. It is the piece of the Jitsi puzzle
 that handles video streaming and recording. On a high level, it is a separate service that joins the meeting using a
 remote-controlled Chromium instance and virtual X-screen. It then runs [ffmpeg](https://ffmpeg.org/) in screen-capture
 mode to record or stream the meeting.
@@ -55,7 +55,7 @@ of message (you may need to scroll the code block below horizontally):
 2022-09-15 06:49:54.620 INFO: [402] LoggingUtils$Companion$OutputLogger$1$1.call#42: frame=21424 fps= 26 q=23.0 size=  231419kB time=00:11:54.10 bitrate=2654.8kbits/s speed=0.852x
 ```
 
-If you're not fluent in ffmpeg, the important part is the last part, the _speed_ at which ffmpeg is encoding. 0.853x
+If you're not fluent in ffmpeg, the important part is the last one, the _speed_ at which ffmpeg is encoding. 0.853x
 means that in one elapsed second, ffmpeg encodes 0.853 video seconds. This means that we're either dropping frames or
 building up a queue and in this case Jibri is telling ffmpeg to encode with a fixed framerate so ffmpeg isn't allowed to
 drop frames but will instead build up a queue.
@@ -75,7 +75,7 @@ eventually ran out of memory at which point the kernel killed it, thereby stoppi
 
 # The Fallout
 Unfortunately, ffmpeg being killed means that Solidtango stopped receiving any data which also means that not only did
-the stream end, the recording that we were to put up for those who missed the webinar also weren't available.
+the stream end, the recording that we intended to put up for those who missed the webinar also ended.
 
 Fortunately, there were only about 40 people watching the stream at this point so the immediate remedy was that we
 invited everyone watching the webinar to the meeting in Jitsi so they could partake directly until the end of the
@@ -174,11 +174,12 @@ my conference presentations. This meant that I already had it set up for hardwar
 had to create a new profile for our Jitsi meeting and start recording.
 
 ### Recording with OBS
+
 Recording the video went well. We streamed it to SolidTango in a private event that my colleagues could watch as well as
 recorded it to a local file on my laptop. We had to restart twice because I messed up: first because I forgot to record
-myself, the second time because I had the stream open in another tab and got distracted when it came online and I heard
-myself through it. Fortunately Daniel only got as far as introducing himself both times so hopefully he isn't too cross
-with me over that.
+my own microphone, the second time because I had the stream open in another tab and got distracted when it came online
+and I heard myself through it. Fortunately Daniel only got as far as introducing himself both times so hopefully he
+isn't too cross with me over that.
 
 # Conclusion
 I think recording with OBS is a superior alternative to using Jibri. In addition to giving us the ability to both
@@ -190,5 +191,5 @@ video is only ever Daniel Melin - even when I'm talking. This is a small issue a
 joining the meeting in a private browsing window. I do think it's a non issue though, because in the future we should
 have someone dedicated to manging OBS instead of having the host do both the hosting and the recording.
 
-You can watch the recorded webinar [here](/todo) (TODO: Actual link).
+You can watch the recorded webinar [here](https://factor10.solidtango.com/video/frukost-webinar-digital-suveraenitet).
 
