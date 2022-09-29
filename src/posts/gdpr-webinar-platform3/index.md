@@ -2,7 +2,7 @@
 title: "The GDPR Compliant Webinar Platform Failed Us"
 description: "Turns out that video processing on the CPU isn't very fast"
 date: 2022-09-29
-thumb: "1280px-video-glitch.webp"
+thumb: "1280px-video-glitch.jpg"
 thumbCaption: "Credit: Blake Patterson via Flickr,  CC BY 2.0"
 thumbCaptionHref: "https://www.flickr.com/photos/blakespot/"
 tags: 
