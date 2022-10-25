@@ -11,7 +11,8 @@ tags:
     - aws
     - speaking
 ---
-I'm going to be giving my talk on speeding up Java on AWS Lambda with Micronaut and GraalVM.
+I'm going to be giving my talk on speeding up Java on AWS Lambda with Micronaut and GraalVM at All Day DevOps on
+November 10.
 
 [All Day DevOps](https://alldaydevops.com) is an online conference by [SonaType](https://www.sonatype.com/) with 6
 different tracks spanning 24 hours.
