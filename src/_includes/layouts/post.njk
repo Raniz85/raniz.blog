@@ -18,7 +18,7 @@ layout: default
         {% endif %}
         {% if thumb %}
         <div class="mt-10 -mx-7 md:mx-0">
-            <img class="w-full max-w-5xl mx-auto" src="{{ thumb | url }}" width="960" height="500" alt="{{ thumbAlt | default('Title image') }}"/>
+            {% postTitleImage thumb, thumbAlt, page, "max-w-5xl mx-auto" %}
             {% if thumbCaption %}
             <div class="mt-1 text-xs text-right">
                 {% if thumbCaptionHref %}

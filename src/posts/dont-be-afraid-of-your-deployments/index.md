@@ -3,7 +3,6 @@ title: "Don't Fear Your Deployments"
 description: "Fear of deploying quickly becomes a negative spiral that ultimately prevents you from deploying at all"
 draft: true
 date: 2022-04-13
-thumb: "1280px-jfokus-2022.jpg"
 thumbCaption: "Credit: Screenshot from JFokus promo video"
 thumbCaptionHref: "https://youtu.be/w7OMia47k7I"
 tags:
