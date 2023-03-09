@@ -1,6 +1,6 @@
 ---
 title: "TDD Intro: CEO Bowling"
-description: "A short introduction to Test Driven Development and a kata"
+description: "A quick introduction to Test Driven Development, why you do it, how you do it, and a kata for practice"
 date: 2023-03-09
 thumb: "michelle-mcewen-yk2VUa5vtA0-unsplash.jpg"
 thumbCaption: "Credit: Michelle McEwen via Unsplash"
