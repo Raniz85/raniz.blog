@@ -2,7 +2,7 @@
 title: "Doing the dishes during meetings"
 description: "I do the dishes during meetings - for your sake!"
 date: 2023-04-25
-thumb: "raniz-dishwashing.JPG"
+thumb: "raniz-dishwashing.avif"
 thumbCaption: "Reenactment. No meetings were interrupted when taking this photograph"
 tags:
   - meetings
