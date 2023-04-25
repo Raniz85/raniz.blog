@@ -167,4 +167,4 @@ the format of the kata is inspired by [Advent of Code](https://adventofcode.com)
 It works by presenting a problem that you solve and the solution unlocks the next part in the kata where the problem
 changes or expands.
 
-You can find the kata [here](https://raniz85.github.io/ceo-bowling-kata/).
+You can find the kata [here](https://raniz85.github.io/tdd-katas/ceo-bowling/).
