@@ -46,6 +46,22 @@
     .prose code::before, .prose code::after {
         content: "";
     }
+
+    .prose .quote {
+        @apply mx-5;
+        @apply bg-gray-200;
+        @apply p-4;
+        @apply rounded-xl;
+    }
+
+    .prose .quote .source::before {
+        content: "-"
+    }
+    .prose .quote .source {
+        @apply text-gray-600;
+        font-style: italic;
+        text-align: right;
+    }
 }
 
 @layer utilities {

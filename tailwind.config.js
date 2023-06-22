@@ -1,8 +1,9 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
+  mode: 'jit',
   purge: {
-    content: ['./src/**/*.njk', './src/**/*.svg'],
+    content: ['./src/**/*.njk', './src/**/*.svg', './src/**/*.md'],
     layers: ['components', 'utilities'],
     options: {
       safelist: ['header-shadow', '-translate-y-full', 'hidden']
