@@ -1,8 +1,7 @@
 ---
 title: "Who Tests your Tests?"
 description: "Can we learn anything about testing from Sam Vimes of the Discworld novels?"
-date: 2023-06-16
-draft: true
+date: 2023-06-26
 thumb: "leptos-tests.png"
 tags:
   - tdd
@@ -75,8 +74,8 @@ In TDD we start by writing the test,
 and before we are allowed to implement the code we make sure that it _fails_.
 
 By failing the test before implementing the code we make sure that the test can actually fail,
-and by doing this we have proven to ourselves that we can trust the test to be part of our safety net.
-
+and by doing this for _every_ test we build a safety net of proven test cases that we can trust when doing rework
+(this isn't the only thing required for a good safety net, but I'll elaborate on that in another post shortly).
 
 ## Failing Correctly
 
