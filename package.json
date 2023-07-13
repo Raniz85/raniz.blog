@@ -5,9 +5,9 @@
   "scripts": {
     "clean": "rimraf dist",
     "start": "yarn run serve",
-    "serve": "yarn run clean && NODE_ENV=development yarn run eleventy --serve",
-    "watch": "yarn run clean && NODE_ENV=development yarn run eleventy --watch",
-    "build": "yarn run clean && NODE_ENV=production yarn run eleventy",
+    "serve": "NODE_ENV=development yarn run eleventy --serve",
+    "watch": "NODE_ENV=development yarn run eleventy --watch",
+    "build": "NODE_ENV=production yarn run eleventy",
     "debug": "DEBUG=Eleventy* yarn run build",
     "deploy": "yarn build && echo 'mirror -Re dist www' | lftp ftp://nmorbrz@ftp.cluster029.hosting.ovh.net"
   },
