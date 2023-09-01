@@ -18,8 +18,9 @@ I'm currently booked for the following events in autumn 2023:
 * [Test-Driven Development for Everyone (Workshop) at PyConCZ in Prague on September 17](https://cz.pycon.org/2023/program/workshops/18/)
 * [Three-and-a-half Ways of Testing Your Repositories at DevOpsHeroes 2023 in Parma on October 21](https://www.devops-heroes.net/)
 * [Learn TDD By Practice (Workshop) at RustLab (also GoLab) in Florence on November 19](https://rustlab.it/talks/learn-tdd-by-practice)
+* [Thawing Java on AWS Lambda at JCON World (online) on November 21](https://jconworld2023.sched.com/event/1RRYH/thawing-java-on-aws-lambda-reducing-cold-start-times-from-11-seconds-to-1)
 
-One conference a month is _lagom_ for me.
+One in-person conference a month is _lagom_ for me.
 More than that and I feel like I'm spending too much time away from the family.
 
 You may notice that there are two different TDD workshops there and that's because
