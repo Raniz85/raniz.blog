@@ -5,6 +5,9 @@ pagination:
     size: 1
     alias: paged
 permalink: "{% if paged.number > 1 %}page/{{ paged.number }}/{% endif %}index.html"
+sitemap:
+    changefreq: weekly
+    priority: 1
 ---
 
 <div class="flex flex-wrap -mx-2">
