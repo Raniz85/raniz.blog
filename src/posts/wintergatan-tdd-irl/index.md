@@ -1,5 +1,5 @@
 ---
-title: "Wintergatan: Can you Test-Drive Music?"
+title: "Can you Test-Drive Music?"
 description: "I think Martin Molin of Wintergatan is test-driving his Marble Machine 3. Here is why."
 date: 2023-12-11
 thumb: "wintergatan-testbench.jpg"
