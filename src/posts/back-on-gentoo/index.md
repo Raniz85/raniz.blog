@@ -17,7 +17,7 @@ I studied "Computer Technology" and we had our own computer lab where _we_ manag
 (We weren't supposed to have network access in there, but I cloned the MAC address of one of the school's regular computers and
 set up one of our computers as a router. A long network cable handled the rest.)
 
-Under the "student's choice" programme I choose a class in Linux and since none of my teachers knew anything
+Under the "student's choice" program I choose a class in Linux and since none of my teachers knew anything
 about Linux I essentially just got a list of everything I was required to learn and was free to learn that however I wanted.
 (A lot of my classes under the student's choice programme worked this way since we only had two teachers in computer science
 and one of them was a maths/physics teacher who knew a bit of C++).
