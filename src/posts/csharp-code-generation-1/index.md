@@ -55,9 +55,11 @@ public class UserRepositoryPostgresTests() : UserRepositoryTests(new PostgresEng
 ```
 
 This works well,
-but you need to remember to create one concrete class for each database backend you support.
-And if you add support for a third backend in the future you'll have to go through every single class and add another concrete class.
-Tedious and brittle.
+but you need to remember to create one concrete class for each test class and database backend you support.
+With both unit tests and integration tests this quickly becomes very tedious
+(the project that inspired this post had around 80 test suites - that's 160 concrete classes to write for 2 backends).
+Additionally, if you add support for a third backend in the future you'll have to go through every single test class and add another concrete class for the new backend,
+miss one and that test is not run for your new database backend.
 
 A much better way would be to parametrize each class to take a database backend in the constructor and have the test framework
 run every test for each available backend.
@@ -141,19 +143,4 @@ This leaves us back on square one,
 which means that we need to take a different path.
 And that path is called _compile-time code generation_.
 
-Unfortunately,
-this post is already quite long,
-and explaining and showing code generation would make it waaaaay too long,
-so -
-and I hate to do this -
-that will have to be another blog post.
-I will write it real soon,
-I promise!
-
-In the meantime,
-you can subscribe to the blog's [RSS feed](/feed.xml),
-or follow me on [LinkedIn](https://linkedin.com/in/raneland),
-to make sure that you do not miss the resolution of this saga -
-because there is one,
-and it is _neat_.
-
+You can read about that in [part 2](/2024-04-03_csharp-code-generation-2/).

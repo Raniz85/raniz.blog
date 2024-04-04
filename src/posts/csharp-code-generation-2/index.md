@@ -11,7 +11,7 @@ tags:
   - testing
   - code generation
 ---
-In the [previous post](/2023-03-07/csharp-code-generation-1) I explored how to run the same tests for multiple database engines by extending Xunit.
+In the [previous post](/2024-03-07_csharp-code-generation-1/) I explored how to run the same tests for multiple database engines by extending Xunit.
 Unfortunately that did not work,
 so here we are again with a different attempt. (This one will work, promise!).
 
@@ -331,7 +331,40 @@ the generator will generate our database flavours for us:
 
 ![Screenshot of Rider's unit test explorer showing both MariaDbUserRepositoryTests and PostgresUserRepositoryTests](generated-tests.png)
 
+Adding support for a new database is as easy as implementing a new `IDbEngine` and adding it to the array in our generator:
+
+```diff
+diff --git a/Codegen.Tests/DbTestGeneratorTests.cs b/Codegen.Tests/DbTestGeneratorTests.cs
+index 6c843da..365b806 100644
+--- a/Codegen.Tests/DbTestGeneratorTests.cs
++++ b/Codegen.Tests/DbTestGeneratorTests.cs
+@@ -38,6 +38,7 @@ public class DbTestGeneratorTests
+ namespace User.Repository;
+ public class PostgresUserRepositoryTests(): UserRepositoryTests<PostgresEngine>(new PostgresEngine()) {}
+ public class MariaDbUserRepositoryTests(): UserRepositoryTests<MariaDbEngine>(new MariaDbEngine()) {}
++public class SqliteUserRepositoryTests(): UserRepositoryTests<SqliteEngine>(new SqliteEngine()) {}
+ ".Trim());
+     }
+ }
+diff --git a/Codegen/DbTestGenerator.cs b/Codegen/DbTestGenerator.cs
+index d189496..c01d53b 100644
+--- a/Codegen/DbTestGenerator.cs
++++ b/Codegen/DbTestGenerator.cs
+@@ -100,7 +100,7 @@ namespace {Namespace}
+
+             var @namespace = classSymbol.ContainingNamespace.ToDisplayString();
+             var className = classNode.Identifier.Text;
+-            GenerateCode(spc, @namespace, className, ["Postgres", "MariaDb"]);
++            GenerateCode(spc, @namespace, className, ["Postgres", "MariaDb", "Sqlite"]);
+         }
+
+         private void GenerateCode(SourceProductionContext spc, string @namespace, string className, IEnumerable<string> providers)
+```
+
+![Screenshot of Rider's unit test explorer showing the newly generated SqliteUserRepositoryTests
+alongside the previous MariaDbUserRepositoryTests and PostgresUserRepositoryTests](sqlite-added.png)
+
 All that remains is to implement the database engines and the user repository.
 I leave that as an exercise for the reader.
-Uou can also check out a complete example with passing tests over on [my GitHub](https://github.com/raniz85/examples_csharp-codegen).
+You can also check out a complete example with passing tests over on [my GitHub](https://github.com/raniz85/examples_csharp-codegen).
 
