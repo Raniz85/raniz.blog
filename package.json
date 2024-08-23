@@ -9,7 +9,7 @@
     "watch": "NODE_ENV=development yarn run eleventy --watch",
     "build": "NODE_ENV=production yarn run eleventy",
     "debug": "DEBUG=Eleventy* yarn run build",
-    "deploy": "yarn build && echo 'mirror -Re dist www' | lftp ftp://nmorbrz@ftp.cluster029.hosting.ovh.net"
+    "deploy": "yarn build && lftp ftp://nmorbrz@ftp.cluster029.hosting.ovh.net -e 'mirror --reverse --depth-first --verbose dist www'"
   },
   "repository": {
     "type": "git",
@@ -36,5 +36,6 @@
   },
   "dependencies": {
     "@11ty/eleventy-img": "^3.0.0"
-  }
+  },
+  "packageManager": "yarn@3.3.1+sha256.1d2760eb5c0e525abe9c5306fac5fe0b5628c0955072a0da2f4043524497526a"
 }
