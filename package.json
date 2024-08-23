@@ -9,7 +9,7 @@
     "watch": "NODE_ENV=development yarn run eleventy --watch",
     "build": "NODE_ENV=production yarn run eleventy",
     "debug": "DEBUG=Eleventy* yarn run build",
-    "deploy": "yarn build && lftp ftp://nmorbrz@ftp.cluster029.hosting.ovh.net -e 'mirror --reverse --depth-first --verbose dist www'"
+    "deploy": "yarn build && lftp ftp://nmorbrz@ftp.cluster029.hosting.ovh.net -e 'mirror --reverse --depth-first --ignore-time --verbose dist www'"
   },
   "repository": {
     "type": "git",
