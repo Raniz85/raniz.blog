@@ -1,6 +1,5 @@
 const path = require('path');
 
-const pluginTailwind = require('eleventy-plugin-tailwindcss');
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const markdownIt = require('markdown-it');
 const mila = require('markdown-it-link-attributes');
@@ -60,12 +59,9 @@ module.exports = (config) => {
 
   config.setLibrary("md", markdownLib);
 
-  config.addPlugin(pluginTailwind, {
-    src: 'src/assets/css/*'
-  });
-
   config.setDataDeepMerge(true);
 
+  config.addPassthroughCopy('src/assets/css/prism-solarizedLight.css');
   config.addPassthroughCopy('src/assets/img/**/*');
   config.addPassthroughCopy('src/posts/**/*.webp');
   config.addPassthroughCopy({ 'src/posts/img/**/*': 'assets/img/' });
