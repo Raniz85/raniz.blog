@@ -95,6 +95,13 @@ module.exports = (config) => {
     }
     return value;
   });
+  config.addAsyncShortcode("videoThumbnail", async (video, imageClass, sizes) => {
+    return imageShortCode(video.thumbnail, {
+      srcDir: "src/assets/img/thumbnails",
+      url: "/assets/img/thumbnails",
+      outputDir: "dist/assets/img/thumbnails",
+    }, `${video.title} @ ${video.occasion}`, imageClass, sizes)
+  });
   config.addAsyncShortcode("postTitleImage", async (thumb, thumbAlt, page, imageClass, sizes) => {
     return imageShortCode(thumb, {
       srcDir: path.dirname(page.inputPath),

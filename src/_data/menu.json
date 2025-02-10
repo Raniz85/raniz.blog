@@ -4,6 +4,10 @@
         "url": "/about"
     },
     {
+        "label": "Media",
+        "url": "/media"
+    },
+    {
         "label": "Tags",
         "url": "/tags"
     }

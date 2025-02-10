@@ -1,0 +1,67 @@
+[
+  {
+    "title": "Thawing Java on AWS Lambda: Reducing cold start times from 11 seconds to 1",
+    "date": "2022-06-03",
+    "occasion": "Craft Conference 2022",
+    "thumbnail": "thawing-java-craft-2022.jpg",
+    "url": "https://www.youtube.com/watch?v=qyKYmzDa8Vk&pp=ygUTcmFuZWxhbmQgY3JhZnQgY29uZg%3D%3D"
+  },
+  {
+    "title": "Thawing Java on AWS Lambda: Reducing cold start times from 6 seconds to .2",
+    "occasion": "Devoxx Poland 2023",
+    "date": "2023-06-02",
+    "thumbnail": "thawing-java-devoxx-pl-2023.jpg",
+    "url": "https://www.youtube.com/watch?v=iBwZR-2greI"
+  },
+  {
+    "title": "Thawing Java on AWS Lambda: Reducing cold start times from 6 seconds to .2",
+    "occasion": "JCon Online 2023",
+    "date": "2023-12-14",
+    "thumbnail": "thawing-java-jcon-online-2023.jpg",
+    "url": "https://www.youtube.com/watch?v=8S689-yfxXo"
+  },
+  {
+    "title": "Pipeline Patterns and Antipatterns - Things your pipeline should (not) do",
+    "occasion": "Devoxx UK 2024",
+    "date": "2024-05-09",
+    "thumbnail": "pipeline-patterns-devoxx-uk-2024.jpg",
+    "url": "https://www.youtube.com/watch?v=mYBkSg1dz2Y"
+  },
+  {
+    "title": "Thawing Java on AWS Lambda",
+    "occasion": "Serverless Sorcery",
+    "description": "Podcast conversation about Java-performance on AWS Lambda",
+    "date": "2024-06-10",
+    "thumbnail": "thawing-java-serverless-sorcery-2024.jpg",
+    "url": "https://www.serverlesssorcery.com/e/s1e6/"
+  },
+  {
+    "title": "Pipeline Patterns and Antipatterns - Things your pipeline should (not) do",
+    "occasion": "Copenhagen Developers Festival 2024",
+    "date": "2024-08-26",
+    "thumbnail": "pipeline-patterns-cph-devfest-2024.jpg",
+    "url": "https://www.youtube.com/watch?v=OonABHdHD2"
+  },
+  {
+    "title": "The art of automation: An introduction to compile-time code generation in C#",
+    "occasion": "Swetugg Göteborg 2024",
+    "date": "2024-09-16",
+    "thumbnail": "c-sharp-code-generation-swetugg-gbg-2024.jpg",
+    "url": "https://www.youtube.com/watch?v=_c-jI_7D0HQ"
+  },
+  {
+    "title": "The Cloud Show with Magnus Mårtensson ft. Daniel Raniz",
+    "occasion": "",
+    "description": "Me and Magnus talk about provider lock-in and the EU Digital Operations Resillience Act",
+    "date": "2024-10-30",
+    "thumbnail": "cloud-show-raniz-2024.jpg",
+    "url": "https://www.youtube.com/watch?vczoO2pE-KD8"
+  },
+  {
+    "title": "Pipeline Patterns and Antipatterns - Things your pipeline should (not) do",
+    "occasion": "Öredev 2024",
+    "date": "2024-11-10",
+    "thumbnail": "pipeline-patterns-oredev-2024.jpg",
+    "url": "https://www.youtube.com/watch?v=B3rV97Uufuk"
+  }
+]
