@@ -1,6 +1,6 @@
 ---
 title: "It's all servers in the end"
-description: ""
+description: "Containers, Kubernetes, serverless, event buses. It's all servers in the end"
 date: 2025-03-04
 thumb: "4589476034_078d71918e_k.jpg"
 thumbCaption: "Server park at CERN; Nicolas Nova via Flickr, CC-BY-NC 2.0"
