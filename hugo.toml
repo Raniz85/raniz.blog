@@ -1,0 +1,4 @@
+baseURL = "https://raniz.blog"
+languageCode = 'en-us'
+title = "Raniz' blog"
+theme = "raniz.blog"

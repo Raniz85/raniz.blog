@@ -1,14 +1,16 @@
----
-title: "The Search for a GDPR Compliant Webinar Platform"
-description: "How hard can it be to host a GDPR-compliant webinar?"
-date: 2021-09-24
-thumb: "1280px-EU_flag_in_Italy.jpg"
-thumbCaption: "Credit: Tiia Monto, CC BY-SA 3.0 via Wikimedia Commons"
-thumbCaptionHref: "https://commons.wikimedia.org/wiki/File:EU_flag_in_Italy.jpg"
-tags: 
-    - gdpr
-    - webinar
----
++++
+title = "The Search for a GDPR Compliant Webinar Platform"
+description = "How hard can it be to host a GDPR-compliant webinar?"
+date = 2021-09-24
+thumb = "1280px-EU_flag_in_Italy.jpg"
+thumbCaption = "Credit: Tiia Monto, CC BY-SA 3.0 via Wikimedia Commons"
+thumbCaptionHref = "https://commons.wikimedia.org/wiki/File:EU_flag_in_Italy.jpg"
+aliases = ["/2021-09-24_gdpr-webinar-platform1"]
+tags = [
+    "gdpr",
+    "webinar",
+]
++++
 So, the Swedish consulting firm I work at - [Factor 10](https://factor10.com) - are hosting a webinar about GDPR
 compliance. The basic premise is that a lot of people (and companies) assume that it's legal to use services from
 American providers (such as Amazon Web Services, Microsoft OneDrive, or Google Workspace) if they just store data about
