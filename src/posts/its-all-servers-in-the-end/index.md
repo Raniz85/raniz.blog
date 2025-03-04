@@ -61,14 +61,14 @@ The more provider-specific products you pick, the harder it'll be to change prov
 
 Given two systems built on Amazon Web Services, solving the same problems with different products from the catalogue:
 One built on AWS Lambda, DynamoDB, SQS, Kinesis and ApiGateway.
-The other built using VMs, Amazon RDS for Postgresql, Amazon (Active)MQ, and Kafka.
+The other built using VMs, managed Postgresql, managed ActiveMQ, and managed Kafka.
 
 Ask yourself this:
 
 * When negotiating discounts, which system will get the most discounts?
 * When the current EU-US Data Privacy Framework breaks down, who will move their data to Europe the fastest and avoid GDPR-related penalties?
 
-Spoiler: It's the latter one for both because moving that stack somewhere else will be a lot less work than for the former.
+Spoiler: It's the latter system for both questions because moving that stack somewhere else will be a lot less work than for the former.
 
 # About those servers then
 
