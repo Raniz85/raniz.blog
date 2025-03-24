@@ -116,6 +116,14 @@ module.exports = (config) => {
       outputDir: path.dirname(post.outputPath),
     }, post.data.thumbAlt, imageClass, sizes)
   });
+  config.addPairedShortcode("collapsible", function(content, title) {
+    return `<details class="collapsible">
+      <summary>${title}</summary>
+      <div class="collapsible-content">
+        ${content}
+      </div>
+    </details>`;
+  });
 
   config.addNunjucksShortcode("today", function() {
     return new Date(Date.now()).toISOString().slice(0, 10);
