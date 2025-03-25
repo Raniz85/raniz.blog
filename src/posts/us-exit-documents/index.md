@@ -287,6 +287,13 @@ They have plans for personal, family and business use and the family plan includ
 They don't have any collaboration features as far as I can tell and the 2/10 TiB plans are either too small or excessively large.
 Paying EUR 1499 is also a lot of money even if it's a one-time payment for a lifetime of storage &mdash; you're also betting that pCloud will outlive you.
 
+## Storegate
+[Storegate](https://www.storegate.com/) is a Swedish company that offer cloud storage and collaboration with a focus on privacy and security.
+They were acquired by Jotta in 2021 but has a more business-oriented offer.
+
+They integrate with Microsoft Office Online using the same technology as Jottacloud,
+which unfortunately disqualifies them for factor10.
+
 # The decision
 
 ## Me
