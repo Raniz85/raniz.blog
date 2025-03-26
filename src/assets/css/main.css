@@ -69,6 +69,22 @@
         @apply md:grid-cols-2;
         column-gap: 2rem;
     }
+
+    .alert {
+        @apply bg-red-300;
+        margin: 1rem;
+        padding: 0.5rem 1rem;
+        width: calc(100% - 2rem);
+        border-radius: 1rem;
+
+        > p:first-child {
+            margin-top: 0;
+        }
+
+        > p:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
 
 @layer utilities {
@@ -100,7 +116,15 @@
         content: " ▼";
     }
     .collapsible > .collapsible-content {
-        padding: 0 1rem;
+        padding: 1rem 1rem;
         transition: max-height 0.2s ease-out;
+
+        > p:first-child {
+            margin-top: 0;
+        }
+
+        > p:last-child {
+            margin-bottom: 0;
+        }
     }
 }

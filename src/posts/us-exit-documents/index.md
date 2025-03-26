@@ -1,6 +1,6 @@
 ---
 title: "Repatriating documents: replacing Google Docs and Office 365 with European services"
-description: "Exploring, and selecting, European alternatives to Google Docs and Microsoft Office 365"
+description: "Exploring European alternatives to Google Docs and Microsoft Office 365"
 date: 2025-03-24
 thumb: "anete-lusina-rFKBUwLg_WQ-unsplash.jpg"
 thumbCaption: "Photo by Anete Lūsiņa via Unsplash"
@@ -10,19 +10,33 @@ tags:
   - data-sovereignty
 ---
 
+{% alert %}
+
+The day after this blog post went live, it was brought to my attention that OnlyOffice is _not_ from Latvia, but [actually from Russia with a Latvian shell company](https://dms-solutions.co/blog/dms-solutions-stops-doing-business-with-onlyoffice-due-to-onlyoffice-close-ties-with-russia/).
+The actual developer is R7 JSC (named after a [Soviet ballistic missile?](https://en.wikipedia.org/wiki/R-7_Semyorka))
+that [sells to the Russian Ministry of Defense](https://www.reddit.com/r/BuyFromEU/comments/1j7zlf2/onlyoffice_is_obfuscating_its_russian_ownership/).
+
+This completely disqualifies the OnlyOffice SaaS from consideration and brings severe doubts about services that make use of their editing software.
+Both I and factor10 are a bit uncomfortable using Russian-developed software, even if it is open source.
+
+Since we're currently experimenting and evaluating options and haven't moved most of the data, this is not that big of a deal.
+The more you move around, the easier it becomes to move again &mdash; just like with deployments :)
+
+This blog post has been updated to reflect this and our actions because of it.{% endalert %}
+
 
 {% collapsible "TL;DR (spoilers)" %}
-Both factor10 and I went with [kDrive from Infomaniak](https://www.infomaniak.com/en/ksuite/kdrive).
+Both factor10 and I have initially chosen to evaluate [kDrive from Infomaniak](https://www.infomaniak.com/en/ksuite/kdrive).
 It has feature parity with both OneDrive and Google Drive (except for the photo handling of OneDrive) and
 uses [OnlyOffice](https://www.onlyoffice.com/) as document editors.
+The integration with OnlyOffice is cause for concern, and at factor10 we're currently discussing our stance on that.
 
 I pay EUR 11.11 per month for 3 TiB storage and 6 users.
 
 factor10 pays EUR 6.58 per month per user for [kSuite pro](https://www.infomaniak.com/en/ksuite/ksuite-pro),
 which includes 3 TiB of storage per user.
 That also includes the rest of kSuite,
-if you go with just kDrive Pro it's EUR 7.40 per month but includes 6 TiB of storage per user.
-{% endcollapsible %}
+if you go with just kDrive Pro it's EUR 7.40 per month but includes 6 TiB of storage per user.{% endcollapsible %}
 
 I've been dissatisfied with most of the "free" services that we use day-to-day for quite a while now.
 I shut down my Facebook account in 2018 and abandoned my Instagram account not too long after.
@@ -114,7 +128,7 @@ Here are all the relevant alternatives that I/we considered, in no particular or
 
 ## OnlyOffice
 
-[OnlyOffice](https://www.onlyoffice.com/) is an Office suite from the Latvian company Ascensio System SIA.
+[OnlyOffice](https://www.onlyoffice.com/) is an Office suite from the <span class="line-through">Latvian</span> Russian company Ascensio System SIA.
 It is open source and can be used standalone or integrated with other services.
 There are installable desktop editors for all three major operating systems as well as mobile apps for iOS and Android.
 It comes with editors for text documents, spreadsheets, and presentations.
@@ -151,6 +165,10 @@ The pricing structure and the available offers are confusing and all services ex
 Both the CRM and the chat are too simple to suit our needs.
 If you use only the document storage and editors it's a solid choice
 &mdash; if you can figure out which package to get...
+
+{% alert %}
+With Ascensio System SIA being a shell company for the Russian New Communication Technologies that [sells software to the Russian ministry of defense](https://www.reddit.com/r/BuyFromEU/comments/1j7zlf2/onlyoffice_is_obfuscating_its_russian_ownership/),
+we are not interested in any services built on OnlyOffice.{% endalert %}
 
 ## Proton for business
 
@@ -212,10 +230,11 @@ I like Infomaniak as a company.
 Their values seem to align with mine and the fact that they're using excess heat from the latest datacentre as district heating gets them a gold star in my book.
 
 I also like kDrive.
-The interface is nice, it has almost all the functionality I could ask for and I like the OnlyOffice editors.
-I'm assuming they have some sort of Enterprise license with OnlyOffice,
-so I would think that paying for kDrive indirectly also funds the development of OnlyOffice
-(I will check this with them and report back here).
+The interface is nice, it has almost all the functionality I could ask for and looks and feels nice to use.
+
+It is a shame they're integrating with OnlyOffice, though I understand that this integration may very well predate the Russion invasion of Ukraine.
+I have asked Infomaniak if they are paying Ascensio System SIA for the use of OnlyOffice or only integrating the open source code.
+I will update here when I hear back.
 
 ## Nextcloud
 
@@ -298,31 +317,28 @@ which unfortunately disqualifies them for factor10.
 
 ## Me
 
-I've gone with Infomaniak kDrive Team.
+Before I found out about OnlyOffice's origins, I decided on kDrive.
 The 3 TiB storage fits perfectly and with 6 users I can also give my parents their own accounts so they can store their stuff there as well.
 EUR 11.11 per month is cheaper than what I pay for OneDrive, which is a nice bonus.
 
 kDrive has no photo management so we'll lose "On this day", I'll have to replace that with something else.
 Probably something running on the home server.
 
+I haven't yet synced any files from TrueNAS to kDrive since I ran into problems with their WebDAV service.
+Because of the OnlyOffice situation, I am currently reevaluating this choice.
+
 ## factor10
 
-factor10 is also going with Infomaniak, but with kSuite Pro and not kDrive.
-The price is lower than for kDrive Pro and in the end will give us more storage (not that we need it).
-Going with kSuite also allows us to check out their other offerings and evaluate whether they can replace any other services
-(spoiler: we've already switched from Slack to kChat and from Google Meet to kMeet).
+factor10 also initially chose to evaluate Infomaniak, but with kSuite Pro and not kDrive.
+We found out about OnlyOffice origins before moving the bulk of our data over and as such have paused the migration.
+We have used their collaboration tools for new documents, and they seem to work well.
+The price is lower than for kDrive Pro and provides more storage once you go past 2 users (not that we need it).
+Going with kSuite also allows us to check out their other offerings and evaluate whether they can replace any other services.
 
 # Final notes
 
-Personally, kDrive was the best offer both feature-wise and price-wise.
 I actually signed up for Jottacloud and I like their service in general &mdash; from what I saw, they have very good photo management.
 Their sharing is too limited for me though, and the fact that I won't be able to use 2 TiB of storage on one of the five accounts is a deal-breaker.
-
-factor10 went with Infomaniak because of several reasons. Chief among them though, is that they give off a good impression.
-Both as a company and with their services.
-While I think OnlyOffice is the better document management system,
-kSuite is a close second and with the additional services being built on other open source solutions we're considering,
-kSuite is the overall better choice for us.
 
 The choice also isn't that big of a deal.
 If we discover something better 

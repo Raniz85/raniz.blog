@@ -124,6 +124,11 @@ module.exports = (config) => {
       </div>
     </details>`;
   });
+  config.addPairedShortcode("alert", function(content, title) {
+    return `<div class="alert">
+        ${content}
+    </div>`;
+  });
 
   config.addNunjucksShortcode("today", function() {
     return new Date(Date.now()).toISOString().slice(0, 10);
