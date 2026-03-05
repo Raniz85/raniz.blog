@@ -32,17 +32,12 @@
     <link href="{{ absolutePostUrl }}"/>
     <updated>{{ post.date | dateToRfc3339 }}</updated>
     <id>{{ absolutePostUrl }}</id>
-    {%- if post.data.page.excerpt -%}
-      <content type="html">
-      <![CDATA[
-        {% if post.data.thumb %}
-        <img src="{{ post.data.thumb | url | absoluteUrl(metadata.url) }}" width="960" height="500" alt="{{ thumbAlt | default('Title image') }}"/>
-        {% endif %}
-        {{ post.data.page.excerpt | toHTML | safe }}
-        <p><a href="{{ absolutePostUrl }}">Continue reading</a></p>
-      ]]>
-      </content>
-    {%- endif -%}
+    <content type="html">
+    <![CDATA[
+      {% if post.data.thumb %}<img src="{{ post.data.thumb | absoluteUrl(absolutePostUrl) }}" alt="{{ post.data.thumbAlt | default('') }}"/>{% endif %}
+      {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}
+    ]]>
+    </content>
   </entry>
   {% endif %}
   {%- endfor %}
