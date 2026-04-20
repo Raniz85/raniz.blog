@@ -1,5 +1,6 @@
 ---
 title: "Continuous Integration and development flow"
+canonicalUrl: https://factor10.com/news/continuous-integration-and-development-flow/
 description:
 date: 2024-09-10
 thumb: "robert-bye-cKBsq-5U17A-unsplash.jpg"

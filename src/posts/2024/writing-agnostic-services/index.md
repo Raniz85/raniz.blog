@@ -2,6 +2,7 @@
 title: "Developing technology-agnostic services"
 description: ""
 date: 2024-08-23
+canonicalUrl: https://factor10.com/news/developing-technology-agnostic-services/
 thumb: "edge2edge-media-qHhJkxare7A-unsplash.jpg"
 thumbCaption: "Credit: Edge2Edge Media via Unsplash"
 thumbCaptionHref: "edge2edge-media-qHhJkxare7A-unsplash.jpg"

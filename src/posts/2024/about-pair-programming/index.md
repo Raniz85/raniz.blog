@@ -1,5 +1,6 @@
 ---
 title: "About pair programming"
+canonicalUrl: https://factor10.com/news/about-pair-programming/
 description: 
 date: 2024-02-22
 thumb: "bonnie-kittle-MUcxe_wDurE-unsplash.jpg"

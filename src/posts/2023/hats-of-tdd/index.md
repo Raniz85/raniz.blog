@@ -1,5 +1,6 @@
 ---
 title: "The Hats of Test Driven Development"
+canonicalUrl: https://factor10.com/news/the-hats-of-test-driven-development/
 description: ""
 date: 2023-11-01
 thumb: "stephen-hocking-QxeihtV-5Kk-unsplash.jpg"

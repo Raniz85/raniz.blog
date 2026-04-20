@@ -1,5 +1,6 @@
 ---
 title: "Who Tests your Tests?"
+canonicalUrl: https://factor10.com/news/who-tests-your-tests/
 description: "Can we learn anything about testing from Sam Vimes of the Discworld novels?"
 date: 2023-06-26
 thumb: "leptos-tests.png"

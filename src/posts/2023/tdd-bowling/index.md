@@ -1,5 +1,6 @@
 ---
 title: "TDD Intro: CEO Bowling"
+canonicalUrl: https://factor10.com/news/tdd-intro-ceo-bowling/
 description: "A quick introduction to Test Driven Development, why you do it, how you do it, and a kata for practice"
 date: 2023-03-09
 thumb: "michelle-mcewen-yk2VUa5vtA0-unsplash.jpg"

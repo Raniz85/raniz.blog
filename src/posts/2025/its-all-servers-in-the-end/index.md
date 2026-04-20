@@ -1,5 +1,6 @@
 ---
 title: "It's all servers in the end"
+canonicalUrl: https://factor10.com/news/it-s-all-servers-in-the-end/
 description: "Containers, Kubernetes, serverless, event buses. It's all servers in the end"
 date: 2025-03-04
 thumb: "4589476034_078d71918e_k.jpg"

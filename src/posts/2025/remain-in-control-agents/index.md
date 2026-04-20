@@ -1,5 +1,6 @@
 ---
 title: "A reminder to stay in control of your agents"
+canonicalUrl: https://factor10.com/news/a-reminder-to-stay-in-control-of-your-agents/
 description: "These tools are good, but seriously flawed. Trust but verify."
 date: 2025-11-13
 thumb: "alexandre-boucher-BNrlDv8w07Y-unsplash.jpg"

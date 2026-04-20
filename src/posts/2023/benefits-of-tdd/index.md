@@ -1,5 +1,6 @@
 ---
 title: "The Benefits of TDD"
+canonicalUrl: https://factor10.com/news/the-benefits-of-tdd/
 description: 
 date: 2023-08-17
 thumb: "ben-white-qDY9ahp0Mto-unsplash.jpg"
